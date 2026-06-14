@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Claudy Sayang ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#120000,#3a0000,#7a0019);
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+}
+
+.page{
+position:absolute;
+width:100%;
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+transition:1s;
+padding:20px;
+}
+
+.hidden{
+opacity:0;
+pointer-events:none;
+}
+
+.heart{
+position:fixed;
+top:-50px;
+pointer-events:none;
+animation:fall linear infinite;
+z-index:0;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-100px) rotate(0deg);
+opacity:1;
+}
+100%{
+transform:translateY(110vh) rotate(360deg);
+opacity:0;
+}
+}
+
+.envelope{
+width:320px;
+height:220px;
+position:relative;
+cursor:pointer;
+transition:.4s;
+}
+
+.envelope:hover{
+transform:scale(1.08);
+}
+
+.bottom{
+position:absolute;
+width:100%;
+height:100%;
+background:#b3002d;
+border-radius:0 0 15px 15px;
+box-shadow:0 0 40px rgba(255,0,80,.4);
+}
+
+.top{
+position:absolute;
+width:100%;
+height:100%;
+background:#ff1744;
+clip-path:polygon(0 0,50% 60%,100% 0);
+}
+
+.open-text{
+margin-top:30px;
+font-size:24px;
+}
+
+.card{
+width:90%;
+max-width:900px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.15);
+
+padding:45px;
+
+border-radius:35px;
+
+box-shadow:
+0 0 30px rgba(255,0,80,.3),
+0 20px 60px rgba(0,0,0,.5);
+
+text-align:center;
+}
+
+.title{
+font-family:'Dancing Script',cursive;
+font-size:70px;
+color:#ff5c7a;
+text-shadow:
+0 0 10px #ff5c7a,
+0 0 30px #ff5c7a;
+}
+
+.subtitle{
+margin-top:10px;
+margin-bottom:25px;
+color:#ddd;
+font-size:22px;
+}
+
+.message{
+font-size:22px;
+line-height:2;
+min-height:220px;
+}
+
+.btn{
+padding:15px 35px;
+border:none;
+border-radius:999px;
+
+background:
+linear-gradient(
+45deg,
+#ff003c,
+#ff5e78
+);
+
+color:white;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+
+box-shadow:
+0 0 20px #ff3355,
+0 0 50px rgba(255,0,80,.4);
+
+transition:.3s;
+margin:10px;
+}
+
+.btn:hover{
+transform:scale(1.08);
+}
+
+video{
+width:100%;
+border-radius:25px;
+
+box-shadow:
+0 0 20px rgba(255,0,80,.4),
+0 0 60px rgba(255,0,80,.3);
+}
+
+.popup{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.8);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:999;
+}
+
+.popup-box{
+background:white;
+color:#333;
+padding:35px;
+border-radius:25px;
+text-align:center;
+max-width:400px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+
+<div class="page" id="page1">
+
+<div class="envelope" onclick="openLetter()">
+<div class="bottom"></div>
+<div class="top"></div>
+</div>
+
+<div class="open-text">
+❤️ Klik Amplop Ini Sayang ❤️
+</div>
+
+</div>
+
+<!-- PAGE 2 -->
+
+<div class="page hidden" id="page2">
+
+<div class="card">
+
+<div class="title">
+For Claudy Sayang ❤️
+</div>
+
+<div class="subtitle">
+</div>
+
+<div class="message" id="typing"></div>
+
+<div id="question" style="display:none;">
+
+<h2 style="margin-top:20px;">
+Claudy, uda maafin Atha belum? 
+</h2>
+
+<br>
+
+<button class="btn" onclick="maafinAku()">
+❤️ Maafin Atha ❤️
+</button>
+
+<button
+class="btn"
+id="belumBtn"
+style="background:#444;"
+onmouseover="kabur()">
+💔 Belum
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- PAGE 3 -->
+
+<div class="page hidden" id="page3">
+
+<div class="card">
+
+<h1 style="color:#ff5c7a;">
+Our Memories ❤️
+</h1>
+
+<br>
+
+<video controls autoplay loop>
+<source src="claudy.mp4" type="video/mp4">
+</video>
+
+<br><br>
+
+<button class="btn" onclick="showLove()">
+❤️ Klik Ini Sayang ❤️
+</button>
+
+</div>
+
+</div>
+
+<div class="popup" id="popup">
+
+<div class="popup-box">
+
+<h2>I Love You Claudy ❤️</h2>
+
+<br>
+
+<p>
+Makasih ya sayang udah baca semuanya 🤍
+<br><br>
+Aku cuma pengen semuanya baik-baik lagi seperti biasanya.
+</p>
+
+<br>
+
+<button class="btn" onclick="closeLove()">
+❤️
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+for(let i=0;i<80;i++){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(15+Math.random()*30)+"px";
+
+heart.style.animationDuration=(5+Math.random()*8)+"s";
+
+document.body.appendChild(heart);
+
+}
+
+const text=
+`maaf ya sayang kalo aku ada salah sama kamu 
+aku kepikiran terus karna aku gak suka kita jadi renggang gini.
+
+aku minta maaf kalau udah bikin kamu sedih atau kesel.
+
+i love you sayang jangan lama" ya marahnya sayang aku takut :(`;
+
+function openLetter(){
+
+document.getElementById("page1").classList.add("hidden");
+
+setTimeout(()=>{
+document.getElementById("page2").classList.remove("hidden");
+typeWriter();
+},600);
+
+}
+
+let i=0;
+
+function typeWriter(){
+
+if(i<text.length){
+
+document.getElementById("typing").innerHTML += text.charAt(i);
+
+i++;
+
+setTimeout(typeWriter,35);
+
+}else{
+
+document.getElementById("question").style.display="block";
+
+}
+
+}
+
+function maafinAku(){
+
+alert("YEAYYY ❤️\n\nMakasih sayang udah maafin Atha 🥺❤️");
+
+document.getElementById("page2").classList.add("hidden");
+
+setTimeout(()=>{
+document.getElementById("page3").classList.remove("hidden");
+},500);
+
+}
+
+function kabur(){
+
+const btn=document.getElementById("belumBtn");
+
+const x=Math.random()*(window.innerWidth-200);
+
+const y=Math.random()*(window.innerHeight-100);
+
+btn.style.position="fixed";
+btn.style.left=x+"px";
+btn.style.top=y+"px";
+
+}
+
+function showLove(){
+document.getElementById("popup").style.display="flex";
+}
+
+function closeLove(){
+document.getElementById("popup").style.display="none";
+}
+
+</script>
+
+</body>
+</html>
